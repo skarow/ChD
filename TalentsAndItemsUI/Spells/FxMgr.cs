@@ -9,8 +9,6 @@ public class FxMgr : MonoBehaviour {
     public GameObject freezeFX;
     public GameObject withholdAttackFX;
 
-    private GameObject currActive;
-
     private static FxMgr _instance;
     public static FxMgr Instance
     {
@@ -26,7 +24,6 @@ public class FxMgr : MonoBehaviour {
     {
         trapFX.transform.position = position + (new Vector3(0f, 1f, 0f));
         trapFX.SetActive(true);
-        currActive = trapFX;
     }
 
     public void DeactivateTrapFX()
@@ -38,7 +35,6 @@ public class FxMgr : MonoBehaviour {
     {
         rootFX.transform.position = position + (new Vector3(0f, 1f, 0f));
         rootFX.SetActive(true);
-        currActive = rootFX;
     }
     public void DeactivateRootFX()
     {
@@ -49,7 +45,6 @@ public class FxMgr : MonoBehaviour {
     {
         freezeFX.transform.position = position + (new Vector3(0f, 1f, 0f));
         freezeFX.SetActive(true);
-        currActive = freezeFX;
     }
     public void DeactivateFreezeFX()
     {
@@ -60,7 +55,6 @@ public class FxMgr : MonoBehaviour {
     {
         withholdAttackFX.transform.position = position + (new Vector3(0f, 1f, 0f));
         withholdAttackFX.SetActive(true);
-        currActive = freezeFX;
     }
     public void DeactivateWithholdAttackFX()
     {

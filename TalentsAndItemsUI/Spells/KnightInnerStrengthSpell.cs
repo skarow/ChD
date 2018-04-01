@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Spells
 {
-    public class KnightInnerStrength : MonoBehaviour
+    public class KnightInnerStrengthSpell : MonoBehaviour
     {
         public PlayMakerFSM fsmInnerStrenght;
         public void UseSpell( EPlayerSpells spell )

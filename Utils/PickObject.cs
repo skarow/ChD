@@ -57,4 +57,31 @@ public class PickObject : ScriptableObject {
         return null;
     }
 
+    // ex. An object sitting in a game field
+    public bool CheckForObjectInPosition( Vector3 position)
+    {
+        LayerArrayToLayerMask();
+
+        RaycastHit hitInfo;
+        Physics.Raycast(position, new Vector3(0f, 90f, 0f), out hitInfo, 30, layerMask);
+        if ( hitInfo.transform )
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public GameObject GetObjectInPosition( Vector3 position )
+    {
+        LayerArrayToLayerMask();
+
+        RaycastHit hitInfo;
+        Physics.Raycast(position, new Vector3(0f, 90f, 0f), out hitInfo, 30, layerMask);
+        if (hitInfo.transform)
+        {
+            return hitInfo.transform.gameObject;
+        }
+        return null;
+    }
+
 }

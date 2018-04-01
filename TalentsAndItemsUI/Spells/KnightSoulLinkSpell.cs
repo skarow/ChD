@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Spells
 {
-    public class KnightSoulLink : MonoBehaviour
+    public class KnightSoulLinkSpell : MonoBehaviour
     {
 
         public PlayMakerFSM fsmKnightSoulLink;

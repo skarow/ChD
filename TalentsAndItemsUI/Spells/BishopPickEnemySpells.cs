@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Spells
 {
-    public class BishopPickEnemySpells : MonoBehaviour, INewPlayerTurnListener
+    public class BishopPickEnemySpells : MonoBehaviour
     {
         public PickObject enemyPick;
 
@@ -17,17 +17,6 @@ namespace Spells
         void Awake()
         {
             bActivated = false;
-        }
-
-        void Start()
-        {
-            PlayerTurnMgr.Instance.SubscribeForNewTurnNotification(this);
-        }
-
-        void INewPlayerTurnListener.OnNewPlayerTurn()
-        {
-            BishopRootSpell.Tick();
-            BishopWithholdEnemySpell.Tick();
         }
 
         public void Activate( EPlayerSpells spell )
