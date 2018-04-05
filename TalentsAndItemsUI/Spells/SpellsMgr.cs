@@ -55,10 +55,10 @@ public class SpellsMgr : MonoBehaviour, INewPlayerTurnListener {
                 knightMove.Activate(spell);
                 break;
             case EPlayerSpells.eKnightInnerStrength:
-                knightIS.UseSpell(spell);
+                knightIS.Activate();
                 break;
             case EPlayerSpells.eKnightSoulLink:
-                knightSL.UseSpell(spell);
+                knightSL.Activate();
                 break;
             case EPlayerSpells.eBishopWithholdEnemy:
             case EPlayerSpells.eBishopEntangle:

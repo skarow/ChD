@@ -33,14 +33,16 @@ public enum EPlayerSpells
     eCount
 }
 
-public static class TalentsHolderMgr  {
+public static class TalentsHolderMgr {
 
     static Dictionary<EPlayerSpells, Talent> talents;
+    static bool zeroPenalty = false;
 
     // Use this for initialization
     static TalentsHolderMgr() {
         //Instance = this;
 
+        #region Talent defs
         talents = new Dictionary<EPlayerSpells, Talent>
         {
             {
@@ -506,14 +508,25 @@ public static class TalentsHolderMgr  {
                 }
             },
         };
+        #endregion // #region Talent defs
 
         LoadTalents();
     }
 
     #region Public Methods
+
+    static public void SetZeroPenalty()
+    {
+        zeroPenalty = true;
+    }
     // sets local and global cooldown
     static public void UseSpell(EPlayerSpells spell)
     {
+        if ( zeroPenalty == true ) // allows a spell to not cost any penalty
+        {
+            zeroPenalty = false;
+            return;
+        }
         Talent talent = talents[spell];
         talent.CurrentPenalty = talent.levelDef[talent.UpgradedTalentLevel].localCooldown;
         SetGlobalCooldown(talent.levelDef[talent.UpgradedTalentLevel].globalCooldown);

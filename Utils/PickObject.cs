@@ -8,6 +8,8 @@ public class PickObject : ScriptableObject {
     public int[] layerMaskArray;
     public int pickDistance = 100;
 
+    // used to lower the raycast point beneath the board so that the raycast can always be UP
+    Vector3 submurgePoint = new Vector3(0f, 5f, 0f);
     int layerMask;
 
     void LayerArrayToLayerMask()
@@ -63,7 +65,7 @@ public class PickObject : ScriptableObject {
         LayerArrayToLayerMask();
 
         RaycastHit hitInfo;
-        Physics.Raycast(position, new Vector3(0f, 90f, 0f), out hitInfo, 30, layerMask);
+        Physics.Raycast(position - submurgePoint, new Vector3(0f, 90f, 0f), out hitInfo, 30, layerMask);
         if ( hitInfo.transform )
         {
             return true;
@@ -76,7 +78,7 @@ public class PickObject : ScriptableObject {
         LayerArrayToLayerMask();
 
         RaycastHit hitInfo;
-        Physics.Raycast(position, new Vector3(0f, 90f, 0f), out hitInfo, 30, layerMask);
+        Physics.Raycast(position - submurgePoint, Vector3.up/*new Vector3(0f, 90f, 0f)*/, out hitInfo, 30, layerMask);
         if (hitInfo.transform)
         {
             return hitInfo.transform.gameObject;

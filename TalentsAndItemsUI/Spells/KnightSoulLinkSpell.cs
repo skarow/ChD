@@ -9,12 +9,10 @@ namespace Spells
 
         public PlayMakerFSM fsmKnightSoulLink;
 
-        public void UseSpell(EPlayerSpells spell)
+        public void Activate()
         {
-            if (spell == EPlayerSpells.eKnightSoulLink)
-            {
-                fsmKnightSoulLink.Fsm.Event("USE_SWITCHES");
-            }
+            PlayerTurnMgr.Instance.ChangeCurrentActivePlayer();
+            TalentsHolderMgr.SetZeroPenalty();
         }
     }
 

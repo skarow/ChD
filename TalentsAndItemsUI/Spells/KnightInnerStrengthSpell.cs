@@ -8,12 +8,9 @@ namespace Spells
     public class KnightInnerStrengthSpell : MonoBehaviour
     {
         public PlayMakerFSM fsmInnerStrenght;
-        public void UseSpell( EPlayerSpells spell )
+        public void Activate( )
         {
-            if ( spell == EPlayerSpells.eKnightInnerStrength)
-            {
-                fsmInnerStrenght.Fsm.Event("USE_DOUBLE_MOVE");
-            }
+            PlayerTurnMgr.Instance.RepeatPlayer();
         }
 
     }
